@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.anirudh.practize.customImpl.CustomInteger;
+import com.anirudh.practise.customImpl.CustomInteger;
 
 public class TestCustom {
 	
