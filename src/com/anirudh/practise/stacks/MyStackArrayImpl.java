@@ -4,7 +4,7 @@ import java.util.EmptyStackException;
 
 public class MyStackArrayImpl<T> implements MyStack<T> {
 	
-	private Object[] arr;
+	private T[] arr;
 	private int index;
 	protected int CAPACITY = 10;
 	public double LOAD_FACTOR= 0.8;
@@ -20,7 +20,7 @@ public class MyStackArrayImpl<T> implements MyStack<T> {
 	}
 
 	public MyStackArrayImpl() {
-		arr = new Object[CAPACITY];
+		arr = (T[])new Object[CAPACITY];
 	}
 	@Override
 	public void push(T t) {
@@ -42,7 +42,7 @@ public class MyStackArrayImpl<T> implements MyStack<T> {
 		for(int i = 0; i< index;i++){
 			tempArr[i]=arr[i];
 		}
-		arr=tempArr;
+		arr=(T[])tempArr;
 	}
 
 	@Override
