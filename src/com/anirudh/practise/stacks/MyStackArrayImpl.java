@@ -19,6 +19,8 @@ public class MyStackArrayImpl<T> implements MyStack<T> {
 		return index == 0;
 	}
 
+	@SuppressWarnings("unchecked")
+	//Problem with Java, Java does not allow Generics in Array Creation
 	public MyStackArrayImpl() {
 		arr = (T[])new Object[CAPACITY];
 	}
@@ -36,6 +38,7 @@ public class MyStackArrayImpl<T> implements MyStack<T> {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	private void resize() {
 		CAPACITY = CAPACITY * 2;
 		Object[] tempArr = new Object[CAPACITY];
