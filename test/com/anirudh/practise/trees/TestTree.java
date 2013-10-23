@@ -30,12 +30,11 @@ public class TestTree {
 	}
 
 	private TreeNode<String> prepareTree() {
-		System.out.println(tree.getRootElement());
-		System.out.println(tree.getRoot().toString());
 		TreeNode<String> treeNodeToGet = null;
 		List<TreeNode<String>> children = tree.getRoot().getChildren();
 		for (TreeNode<String> treeNode : children) {
 			if (treeNode != null) {
+				System.out.println(treeNode.getElement());
 				List<TreeNode<String>> children2 = treeNode.getChildren();
 				if (treeNode.getChildren() != null) {
 					for (TreeNode<String> treeNode2 : children2) {
@@ -56,6 +55,20 @@ public class TestTree {
 		TreeNode<String> treeNodeToGet = prepareTree();
 		assertEquals(0, tree.height(treeNodeToGet));
 		assertEquals(2,tree.height(tree.getRoot()));
+	}
+	
+	@Test
+	public void testPreOrder(){
+		System.out.println("----------PRE ORDER---------------");
+		System.out.println(tree.preOrderTraversal(tree.getRoot()));
+		System.out.println("------------------------------------");
+	}
+	
+	@Test
+	public void testPostOrder(){
+		System.out.println("----------POST ORDER---------------");
+		System.out.println(tree.postOrder(tree.getRoot()));
+		System.out.println("------------------------------------");
 	}
 
 }

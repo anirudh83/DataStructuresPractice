@@ -1,5 +1,7 @@
 package com.anirudh.practise.trees;
 
+import java.util.List;
+
 
 public class MyTree<T> {
 	
@@ -73,5 +75,30 @@ public class MyTree<T> {
 		
 	}
 	
+	public String preOrderTraversal(TreeNode<T> node) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(node.toString() + ", ");
+		List<TreeNode<T>> children = node.getChildren();
+		if (children != null) {
+			for (TreeNode<T> treeNode : children) {
+				sb.append(preOrderTraversal(treeNode));
+			}
+		}
+		return sb.toString();
+	}
+
+	public String postOrder(TreeNode<T> node){
+		StringBuilder sb = new StringBuilder();
+		
+		List<TreeNode<T>> children = node.getChildren();
+		if (children != null) {
+			for (TreeNode<T> treeNode : children) {
+				sb.append(postOrder(treeNode));
+			}
+		}
+		sb.append(node.toString() + ", ");
+		return sb.toString();
+	}
+
 }
 	

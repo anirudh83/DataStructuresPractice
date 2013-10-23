@@ -58,11 +58,7 @@ public class TreeNode<T> {
 		}
 		@Override
 		public String toString(){
-			StringBuilder sb = new StringBuilder();
-			for (TreeNode<T> node : children) {
-				sb.append(node.getElement().toString()+", ");
-			}
-			return sb.toString();
+			return this.getElement().toString();
 		}
 
 }
