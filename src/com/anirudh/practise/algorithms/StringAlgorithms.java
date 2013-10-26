@@ -3,7 +3,11 @@ package com.anirudh.practise.algorithms;
 import java.util.Arrays;
 
 
-
+/**
+ * 
+ * @author <a href="http://anirudhbhatnagar.com">Anirudh Bhatnagar</a>
+ *
+ */
 public class StringAlgorithms {
 	
 	/*

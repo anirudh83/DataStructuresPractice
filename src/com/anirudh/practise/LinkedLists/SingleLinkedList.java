@@ -4,9 +4,9 @@ public class SingleLinkedList {
 
 	Node head = null;
 
-	private class Node {
-		Object element;
-		Node next;
+	public class Node {
+		public Object element;
+		public Node next;
 	}
 
 	public void addElementInFront(Object element) {
@@ -85,6 +85,14 @@ public class SingleLinkedList {
 			System.out.print(temp.element + "->");
 			temp = temp.next;
 		}
+	}
+
+	public Node getHead() {
+		return head;
+	}
+
+	public void setHead(Node head) {
+		this.head = head;
 	}
 
 }

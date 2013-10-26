@@ -7,6 +7,16 @@ public class Node<T> {
 	private Node<T> left;
 	private Node<T> right;
 	
+	public Node(T element,Node<T> parent,Node<T> left,Node<T>right) {
+		setElement(element);
+		setParent(parent);
+		setLeft(left);
+		setRight(right);
+	}
+	
+	public Node(){
+	}
+	
 	public T getElement() {
 		return element;
 	}
