@@ -98,4 +98,44 @@ public class MyBTree<T> {
 		return size;
 	}
 
+	public boolean isRoot(Node<T> node){
+		return node==root;
+	}
+	
+	public boolean isExternal(Node<T> node){
+		if(node==null) return false;
+		if(hasLeft(node)) return false;
+		if(hasRight(node)) return false;
+		return true;
+	}
+	
+	public boolean isInternal(Node<T> node){
+		if(node==null) return false;
+		if(hasLeft(node)) return true;
+		if(hasRight(node)) return true;
+		return false;
+	}
+	
+	public int depth(Node<T> node){
+		if(isRoot(node)) return 0;
+		return 1+depth(node.getParent());
+	}
+	
+	public int height(Node<T> node) {
+		if (isExternal(node)) {
+			return 0;
+		}else{
+		int h = 0;
+		if (hasLeft(node)) {
+			h = height(node.getLeft());
+		} else if (hasRight(node)) {
+			h =  height(node.getRight());
+		}
+		return 1+h;
+		}
+	}
+	
+	public int getTreeHeight(){
+		return 0;
+	}
 }
