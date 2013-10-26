@@ -1,9 +1,13 @@
-package com.anirudh.practise;
+package com.anirudh.practise.progressions;
 
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import com.anirudh.practise.progressions.ArithmeticProgression;
+import com.anirudh.practise.progressions.FibonacciProgression;
+import com.anirudh.practise.progressions.GeoProgression;
 
 public class TestProgresion {
 

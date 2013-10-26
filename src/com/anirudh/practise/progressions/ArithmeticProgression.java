@@ -1,4 +1,4 @@
-package com.anirudh.practise;
+package com.anirudh.practise.progressions;
 
 /**
  * @author Anirudh
