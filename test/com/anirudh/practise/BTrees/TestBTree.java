@@ -14,43 +14,64 @@ import org.junit.Test;
 public class TestBTree {
 	
 	MyBTree<String> btree;
-	Node<String> fLeft;
-	Node<String> fRight;
-	Node<String> right2;
-	Node<String> right3;
 	
-	
+	@Before
+	public void init(){
+		btree = TreeFactory.constructImbalancedBTree();
+	}
 	@Test
 	public void testCreateTree(){
 		assertEquals(false,btree.addRoot("test"));
 		assertEquals(true,btree.hasLeft(btree.getRoot()));
 	}
 
-	@Before
-	public void init() {
-		btree = new MyBTree<String>();
-		btree.addRoot("root");
-		fLeft = btree.addLeft("fleft", btree.getRoot());
-		fRight = btree.addRight("fright", btree.getRoot());
-		btree.addLeft("s1left", fLeft);
-		right2 = btree.addRight("s2Right", fRight);
-		Node<String> left3 = btree.addLeft("left3", right2);
-		Node<String> left4 = btree.addLeft("left4", left3);
-		btree.addLeft("left4right5", left4);
-		right3 = btree.addRight("right3", right2);
-		btree.addRight("right4", right3);
-	}
 	
 	@Test
+	public void testDisplay(){
+		TreeFactory.displayBTree(btree.getRoot());
+	}
+	@Test
 	public void testDepth(){
-		assertEquals(2,btree.depth(right2));
-		assertEquals(3,btree.depth(right3));
+		assertEquals(2,btree.depth(TreeFactory.r3));
+		assertEquals(3,btree.depth(TreeFactory.l4));
 	}
 	
 	@Test
 	public void testHeight(){
-		assertEquals(3,btree.height(right2));
-		assertEquals(4,btree.height(fRight));
+		assertEquals(3,btree.height(TreeFactory.r3));
+		assertEquals(4,btree.height(TreeFactory.r1));
+		assertEquals(1,btree.height(TreeFactory.r5));
+	}
+	
+	@Test
+	public void testPreOrder(){
+		btree.preOrder(btree.getRoot());
+		MyBTree<String> btree2 = TreeFactory.constructBalancedBTree();
+		btree2.preOrder(btree2.getRoot());
+	}
+	
+	@Test
+	public void testPostOrder(){
+		btree.postOrder(btree.getRoot());
+		System.out.println("--------");
+		MyBTree<String> btree2 = TreeFactory.constructBalancedBTree();
+		btree2.postOrder(btree2.getRoot());
+	}
+	
+	@Test
+	public void testInOrder(){
+		btree.inOrder(btree.getRoot());
+		System.out.println("--------");
+		MyBTree<String> btree2 = TreeFactory.constructBalancedBTree();
+		btree2.inOrder(btree2.getRoot());
+		
+	}
+	
+	@Test
+	public void testFindMax(){
+		MyBTree<Integer> intTree = TreeFactory.condtructIntegerTree();
+		int max = TreeAlgoExcercise.findMaximum(intTree.getRoot());
+		System.out.println(max);
 	}
 
 }

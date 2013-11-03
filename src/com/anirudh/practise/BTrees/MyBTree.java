@@ -85,7 +85,7 @@ public class MyBTree<T> {
 
 
 	public void preOrder(Node<T> node) {
-		System.out.println(node);
+		visit(node);
 		if (hasLeft(node)) {
 			preOrder(node.getLeft());
 		}
@@ -93,7 +93,32 @@ public class MyBTree<T> {
 			preOrder(node.getRight());
 		}
 	}
+	
+	public void inOrder(Node<T> node){
+		if(hasLeft(node)){
+			postOrder(node.getLeft());
+		}
+		visit(node);
+		if(hasRight(node)){
+			postOrder(node.getRight());
+		}
+	}
+	
+	public void postOrder(Node<T> node){
+		if(hasLeft(node)){
+			postOrder(node.getLeft());
+		}
+		if(hasRight(node)){
+			postOrder(node.getRight());
+		}
+		visit(node);
+	}
 
+	
+	
+	private void visit(Node<T> node){
+		System.out.print(node.getElement()+"-");
+	}
 	public int getSize() {
 		return size;
 	}
@@ -127,9 +152,9 @@ public class MyBTree<T> {
 		}else{
 		int h = 0;
 		if (hasLeft(node)) {
-			h = height(node.getLeft());
+			h = Math.max(h,height(node.getLeft()));
 		} else if (hasRight(node)) {
-			h =  height(node.getRight());
+			h =  Math.max(h,height(node.getRight()));
 		}
 		return 1+h;
 		}

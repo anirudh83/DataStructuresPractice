@@ -41,5 +41,13 @@ public class Node<T> {
 	public void setRight(Node<T> right) {
 		this.right = right;
 	}
+	
+	public boolean hasLeft(){
+		return left!=null;
+	}
+	
+	public boolean hasRight(){
+		return right!=null;
+	}
 
 }
