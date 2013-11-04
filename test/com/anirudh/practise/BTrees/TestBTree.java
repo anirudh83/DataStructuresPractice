@@ -2,7 +2,7 @@
 
 package com.anirudh.practise.BTrees;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -72,6 +72,21 @@ public class TestBTree {
 		MyBTree<Integer> intTree = TreeFactory.condtructIntegerTree();
 		int max = TreeAlgoExcercise.findMaximum(intTree.getRoot());
 		System.out.println(max);
+	}
+	
+	@Test
+	public void testIfexists(){
+		MyBTree<Integer> intTree = TreeFactory.condtructIntegerTree();
+		assertTrue(intTree.exists(intTree.getRoot(), 6));
+		assertFalse(intTree.exists(intTree.getRoot(), 8));
+		assertTrue(intTree.exists(intTree.getRoot(), 2));
+		assertFalse(intTree.exists(intTree.getRoot(), 0));
+	}
+	
+	@Test
+	public void testTreeHeight(){
+		MyBTree<Integer> intTree = TreeFactory.condtructIntegerTree();
+		assertEquals(2,intTree.getTreeHeight());
 	}
 
 }

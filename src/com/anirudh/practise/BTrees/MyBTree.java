@@ -79,6 +79,23 @@ public class MyBTree<T> {
 		}
 	}
 
+	public boolean exists(Node<T> node, T element) {
+
+		boolean result=false;
+		if (node.getElement().equals(element)) {
+			return true;
+		} else {
+			if (node.hasLeft()&&!result) {
+				result = exists(node.getLeft(), element);
+			}
+
+			if (node.hasRight()&&!result) {
+				result = exists(node.getRight(), element);
+			}
+			return result;
+		}
+	}
+	
 	public Node<T> getRoot() {
 		return root;
 	}
@@ -153,14 +170,14 @@ public class MyBTree<T> {
 		int h = 0;
 		if (hasLeft(node)) {
 			h = Math.max(h,height(node.getLeft()));
-		} else if (hasRight(node)) {
-			h =  Math.max(h,height(node.getRight()));
+		}if (node.getRight()!=null) {
+			h = Math.max(h,height(node.getRight()));
 		}
 		return 1+h;
 		}
 	}
 	
 	public int getTreeHeight(){
-		return 0;
+		return height(root);
 	}
 }
