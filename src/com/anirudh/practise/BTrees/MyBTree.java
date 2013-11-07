@@ -164,17 +164,11 @@ public class MyBTree<T> {
 	}
 	
 	public int height(Node<T> node) {
-		if (isExternal(node)) {
-			return 0;
-		}else{
-		int h = 0;
-		if (hasLeft(node)) {
-			h = Math.max(h,height(node.getLeft()));
-		}if (node.getRight()!=null) {
-			h = Math.max(h,height(node.getRight()));
+		if(node==null){
+			return -1;
 		}
-		return 1+h;
-		}
+		return 1+Math.max(height(node.getLeft()),height(node.getRight()));
+		
 	}
 	
 	public int getTreeHeight(){

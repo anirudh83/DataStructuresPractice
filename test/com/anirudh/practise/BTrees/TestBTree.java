@@ -34,6 +34,8 @@ public class TestBTree {
 	public void testDepth(){
 		assertEquals(2,btree.depth(TreeFactory.r3));
 		assertEquals(3,btree.depth(TreeFactory.l4));
+		CrackCodeBTreeExcercise ex = new CrackCodeBTreeExcercise();
+		assertEquals(2,ex.maxDepth(TreeFactory.r5));
 	}
 	
 	@Test
@@ -70,8 +72,7 @@ public class TestBTree {
 	@Test
 	public void testFindMax(){
 		MyBTree<Integer> intTree = TreeFactory.condtructIntegerTree();
-		int max = TreeAlgoExcercise.findMaximum(intTree.getRoot());
-		System.out.println(max);
+		assertEquals(7,TreeAlgoExcercise.findMaximum(intTree.getRoot()));
 	}
 	
 	@Test
@@ -81,6 +82,9 @@ public class TestBTree {
 		assertFalse(intTree.exists(intTree.getRoot(), 8));
 		assertTrue(intTree.exists(intTree.getRoot(), 2));
 		assertFalse(intTree.exists(intTree.getRoot(), 0));
+		TreeAlgoExcercise tae = new TreeAlgoExcercise();
+		assertTrue(tae.exists(intTree.getRoot(), 6));
+		assertFalse(tae.exists(intTree.getRoot(), 16));
 	}
 	
 	@Test

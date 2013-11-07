@@ -1,54 +1,77 @@
 package com.anirudh.practise.BTrees;
 
-
 /**
  * 
  * @author <a href="http://anirudhbhatnagar.com">Anirudh Bhatnagar</a>
- *
+ * 
  */
 public class TreeAlgoExcercise {
+
+	// Problem 1: Find Maximum
+
+	public static int findMaximum(Node node) {
+		if (node == null)
+			return 0;
+		return Math.max(
+				(int) node.getElement(),
+				Math.max(findMaximum(node.getLeft()),
+						findMaximum(node.getRight())));
+	}
+
+	// Problem 2: search an element
+	public boolean exists(Node node, Object element) {
+		if (node == null) {
+			return false;
+		} else {
+			if (node.getElement().equals(element)) {
+				return true;
+			} else {
+				if (!exists(node.getLeft(), element)) {
+					return exists(node.getRight(), element);
+				}
+			}
+			return true;
+		}
+	}
 	
-	public boolean isBalanced(MyBTree btree){
-		
-		
-		return false;
+	//Height of BTree :
+	//number of nodes to be traversed in a path 
+	//from the root to a leaf node
+	//It could also be number of edges
+	
+	public int height(Node node){
+		if(node==null){
+			return -1;
+		}
+		return 1+Math.max(height(node.getLeft()),height(node.getRight()));
 		
 	}
 	
-	public int depth(){
-		return 0;
-	}
+
 	
-	public int height(){
+
+	public int depth() {
 		return 0;
 	}
 
-	public void evaluateExpression(){
-		
+	public int height() {
+		return 0;
 	}
-	
-	public void preOrderTopostOrder(){
-		
+
+	public void evaluateExpression() {
+
 	}
-	
+
+	public void preOrderTopostOrder() {
+
+	}
+
 	/**
-	 * For a tree having integers
-	 * @return
+	 * Find deepest node in the tree
 	 */
-	public static int findMaximum(Node node){
-		int root_val=Integer.MIN_VALUE;
-		int left=Integer.MIN_VALUE;
-		int right=Integer.MIN_VALUE;
-		int max=Integer.MIN_VALUE;
-		
-		root_val = (int) node.getElement();
-		if(node.hasLeft())
-		left = findMaximum(node.getLeft());
-		if(node.hasRight())
-		right = findMaximum(node.getRight());
-		max = (left > right) ? left : right;
-		if(root_val>max) max= root_val;
-		return max;
-		
+	public Node findDeepestNode(MyBTree tree) {
+		// TODO
+		return null;
 	}
+
 }
