@@ -9,12 +9,6 @@ public class TestStringAlgo {
 	StringAlgorithms sa = new StringAlgorithms();
 	
 	@Test
-	public void testUniqueChar() {
-		assertEquals(true,sa.isUnique("anirudh"));
-		assertEquals(false,sa.isUnique("abcdb"));
-	}
-	
-	@Test
 	public void testReverse(){
 		assertEquals("dcba",sa.reverseString("abcd"));
 		assertNotSame("dcba",sa.reverseString("abcde"));
