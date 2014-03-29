@@ -1,8 +1,8 @@
 package com.anirudh.practise.algorithms;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class TestStringAlgo {
 
@@ -17,14 +17,14 @@ public class TestStringAlgo {
 	@Test
 	public void testReverse(){
 		assertEquals("dcba",sa.reverseString("abcd"));
-		assertNotEquals("dcba",sa.reverseString("abcde"));
+		assertNotSame("dcba",sa.reverseString("abcde"));
 		assertEquals("dcbai1",sa.reverseString("1iabcd"));
 	}
 	
 	@Test
 	public void testUniqueCharString(){
 		assertEquals("abcde",sa.removeDuplicates("abacdabce"));
-		assertNotEquals("abacdabce",sa.removeDuplicates("abacdabce"));
+        assertNotSame("abacdabce",sa.removeDuplicates("abacdabce"));
 	}
 	
 	@Test
@@ -49,5 +49,15 @@ public class TestStringAlgo {
 	public void testValidateStringPool(){
 		sa.ValidateStringPool("Anirudh");
 	}
+
+    @Test
+    public void testIfStringHasUniqueChars(){
+        assertTrue(sa.hasUniqueChars("Anirudh"));
+    }
+
+    @Test
+    public void testIfStringDoesNotHaveUnique(){
+        assertFalse(sa.hasUniqueChars("Abba"));
+    }
 
 }

@@ -13,7 +13,7 @@ public class TreeAlgoExcercise {
 		if (node == null)
 			return 0;
 		return Math.max(
-				(int) node.getElement(),
+				(Integer) node.getElement(),
 				Math.max(findMaximum(node.getLeft()),
 						findMaximum(node.getRight())));
 	}
