@@ -11,9 +11,11 @@ import com.anirudh.practise.BTrees.Node;
  */
 public class BST {
 
-	public Node<Integer> root = null;
+	private Node<Integer> root;
 
 	public void addElement(Node<Integer> node, Integer element) {
+		
+		
 		if (node == null) {
 			node = new Node<Integer>();
 			node.setElement(element);
@@ -38,7 +40,16 @@ public class BST {
 		}else{
 			return false;
 		}
-
 	}
+
+	public Node<Integer> getRoot() {
+		return root;
+	}
+
+	public void setRoot(Node<Integer> root) {
+		this.root = root;
+	}
+	
+	
 
 }

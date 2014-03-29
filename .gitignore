@@ -8,3 +8,10 @@ bin/
 *.jar
 *.war
 *.ear
+.DS_Store
+.idea/
+InterviewCodingPractice.iml
+src/.DS_Store
+src/com/.DS_Store
+src/com/anirudh/.DS_Store
+src/com/anirudh/practise/.DS_Store

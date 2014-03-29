@@ -1,6 +1,8 @@
 package com.anirudh.practise.algorithms;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 
 /**
@@ -126,6 +128,17 @@ public class StringAlgorithms {
 		System.out.println("s5 == s3"+s5==s3);
 	}
 	
-	
+//	public boolean checkIfIdentical(List<String> s1, List<String> s2){
+//		if(s1.size()!=s2.size()){
+//			return false;
+//		}else{
+//				Iterator<String> iterator = s1.iterator();
+//				while(iterator.hasNext()){
+//					
+//					
+//			}
+//		}
+//		
+//	}
 
 }
