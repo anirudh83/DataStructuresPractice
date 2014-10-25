@@ -89,21 +89,16 @@ public class StringAlgorithms {
      */
     public boolean checkIfAnagram(String s1, String s2) {
 
-        int[] arr1 = new int[256];
-        int[] arr2 = new int[256];
-
-        s1 = s1.replaceAll(" ", "");
-        s2 = s2.replaceAll(" ", "");
-
         if (s1.length() != s2.length()) return false;
 
-        for (int i = 0; i < s1.length(); i++) {
-            arr1[s1.charAt(i)]++;
-            arr2[s2.charAt(i)]++;
+        int[] letters = new int[256];
+
+        for (char c : s1.toCharArray()) {
+            letters[c]++;
         }
 
-        for (int i = 0; i < s1.length(); i++) {
-            if (arr1[s1.charAt(i)] != arr2[s2.charAt(i)]) return false;
+        for (char c : s2.toCharArray()) {
+            if (--letters[c] < 0) return false;
         }
         return true;
     }

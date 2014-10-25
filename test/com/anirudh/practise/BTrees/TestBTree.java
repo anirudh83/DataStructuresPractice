@@ -93,4 +93,11 @@ public class TestBTree {
 		assertEquals(2,intTree.getTreeHeight());
 	}
 
+
+    @Test
+    public void testIfBalanced(){
+        MyBTree<String> stringMyBTree = TreeFactory.constructBalancedBTree();
+        TreeAlgoExcercise tae = new TreeAlgoExcercise();
+        assertTrue(tae.isBalanced(stringMyBTree.getRoot()));
+    }
 }

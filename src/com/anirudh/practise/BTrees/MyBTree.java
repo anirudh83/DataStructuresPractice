@@ -113,11 +113,11 @@ public class MyBTree<T> {
 	
 	public void inOrder(Node<T> node){
 		if(hasLeft(node)){
-			postOrder(node.getLeft());
+            inOrder(node.getLeft());
 		}
 		visit(node);
 		if(hasRight(node)){
-			postOrder(node.getRight());
+            inOrder(node.getRight());
 		}
 	}
 	

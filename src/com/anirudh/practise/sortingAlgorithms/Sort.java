@@ -80,49 +80,52 @@ public class Sort {
 
     public int findInversions(int[] arr) {
 
-        int count = 0;
         int[] helper = new int[arr.length];
-        return merge_sort_inv(0, arr.length - 1, arr, helper, count);
+        return merge_sort_inv(0, arr.length - 1, arr, helper);
     }
 
-    public int merge_sort_inv(int low, int high, int[] arr, int[] helper, int count) {
+    public int merge_sort_inv(int low, int high, int[] arr, int[] helper) {
 
-
+        int inv_count = 0;
         if (high > low) {
             int mid = (low + high) / 2;
-            merge_sort_inv(0, mid, arr, helper, count);
-            merge_sort_inv(mid + 1, high, arr, helper, count);
-            count = count + merge_count_inv(low, mid, high, arr, helper);
+            inv_count += merge_sort_inv(low, mid, arr, helper);
+            inv_count += merge_sort_inv(mid + 1, high, arr, helper);
+            inv_count += merge_count_inv(low, mid, high, arr, helper);
         }
-        return count;
+        return inv_count;
     }
 
     private int merge_count_inv(int low, int mid, int high, int[] arr, int[] helper) {
 
-        for (int i = 0; i <= high; i++) {
-            helper[i] = arr[i];
-        }
         int count = 0;
         int left_index = low;
         int right_index = mid + 1;
-        int current_index = low;
+        int current = low;
 
-        while (left_index <= mid && right_index <= high) {
-            if (helper[left_index] < helper[right_index]) {
-                arr[current_index] = helper[left_index];
-                left_index++;
-            } else {
-                arr[current_index] = helper[right_index];
-                int temp = mid - left_index;
-                count = count + temp;
-                right_index++;
-            }
-            current_index++;
+        //Copying the part of array in analysis into an helper temp array
+        for (int i = low; i <= high; i++) {
+            helper[i] = arr[i];
         }
 
+        while (left_index <= mid && right_index <= high) {
+            if (helper[left_index] <= helper[right_index]) {
+                arr[current] = helper[left_index];
+                left_index++;
+            } else {
+                //found an inversion
+                int temp = mid + 1 - left_index;
+                count = count + temp;
+                arr[current] = helper[right_index];
+                right_index++;
+            }
+            current++;
+        }
+
+        //copy remaining
         int remaining = mid - left_index;
         for (int i = 0; i <= remaining; i++) {
-            arr[current_index + i] = helper[left_index + i];
+            arr[current + i] = helper[left_index + i];
         }
         return count;
     }
@@ -138,7 +141,7 @@ public class Sort {
         if (low < index - 1) {
             quickSort(arr, low, index - 1);
         }
-        if(index<high){
+        if (index < high) {
             quickSort(arr, index, high);
         }
     }
