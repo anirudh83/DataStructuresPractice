@@ -78,15 +78,15 @@ public class Sort {
     }
 
 
-    public int findInversions(int[] arr) {
+    public double findInversions(int[] arr) {
 
         int[] helper = new int[arr.length];
         return merge_sort_inv(0, arr.length - 1, arr, helper);
     }
 
-    public int merge_sort_inv(int low, int high, int[] arr, int[] helper) {
+    public double merge_sort_inv(int low, int high, int[] arr, int[] helper) {
 
-        int inv_count = 0;
+        double inv_count = 0;
         if (high > low) {
             int mid = (low + high) / 2;
             inv_count += merge_sort_inv(low, mid, arr, helper);
@@ -96,9 +96,9 @@ public class Sort {
         return inv_count;
     }
 
-    private int merge_count_inv(int low, int mid, int high, int[] arr, int[] helper) {
+    private double merge_count_inv(int low, int mid, int high, int[] arr, int[] helper) {
 
-        int count = 0;
+        double count = 0;
         int left_index = low;
         int right_index = mid + 1;
         int current = low;
